@@ -7,4 +7,5 @@
     <string name="scan">Scan</string>
     <string name="setting">Setting</string>
     <string name="Favorite">Favorite</string>
+    <string name="placeholder_search">Cari outfit pilihanmu!</string>
 </resources>
