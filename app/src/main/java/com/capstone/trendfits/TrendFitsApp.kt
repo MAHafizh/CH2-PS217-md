@@ -25,7 +25,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.capstone.trendfits.ui.detail.DetailClothes
-import com.capstone.trendfits.ui.favorite.FavotiteScreen
+import com.capstone.trendfits.ui.favorite.FavoriteScreen
 import com.capstone.trendfits.ui.home.HomeScreen
 import com.capstone.trendfits.ui.navigation.NavigationItem
 import com.capstone.trendfits.ui.navigation.Screen
@@ -66,7 +66,7 @@ fun TrendFitsApp(
                 Scan()
             }
             composable(Screen.Favorite.route) {
-                FavotiteScreen()
+                FavoriteScreen()
             }
             composable(Screen.Setting.route) {
                 SettingScreen()
@@ -87,9 +87,6 @@ fun TrendFitsApp(
     }
 
 }
-
-
-
 
 @Composable
 fun BottomBar(

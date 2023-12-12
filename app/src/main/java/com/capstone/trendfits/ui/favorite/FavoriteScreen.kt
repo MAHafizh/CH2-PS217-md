@@ -10,7 +10,7 @@ import androidx.compose.ui.res.stringResource
 import com.capstone.trendfits.R
 
 @Composable
-fun FavotiteScreen(
+fun FavoriteScreen(
     modifier: Modifier = Modifier
 ) {
     Box(
