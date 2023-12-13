@@ -1,6 +1,7 @@
+package com.capstone.trendfits.ui.components
+
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,7 +40,6 @@ fun Search(modifier: Modifier = Modifier) {
             containerColor = MaterialTheme.colorScheme.background
         ),
         modifier = modifier
-            .padding(6.dp, 8.dp)
             .fillMaxWidth()
             .heightIn(min = 44.dp)
     ) {
