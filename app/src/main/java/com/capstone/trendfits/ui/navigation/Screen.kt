@@ -1,7 +1,6 @@
 package com.capstone.trendfits.ui.navigation
 
 sealed class Screen(val route: String) {
-    object SignIn : Screen("sign_in")
     object Home : Screen("home")
     object Scan : Screen("scan")
     object Favorite : Screen("favorite")

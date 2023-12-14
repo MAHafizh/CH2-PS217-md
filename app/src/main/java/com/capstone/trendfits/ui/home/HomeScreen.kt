@@ -36,7 +36,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.rememberAsyncImagePainter
 import com.capstone.trendfits.R
 import com.capstone.trendfits.di.Injection
 import com.capstone.trendfits.model.ClothesOrder
@@ -46,8 +45,6 @@ import com.capstone.trendfits.ui.components.HomeSection
 import com.capstone.trendfits.ui.components.Search
 import com.capstone.trendfits.ui.components.StateUi
 import com.capstone.trendfits.ui.theme.TrendFitsTheme
-import com.google.firebase.Firebase
-import com.google.firebase.auth.auth
 
 @Composable
 fun HomeScreen(
@@ -91,7 +88,8 @@ fun ClothesContent(
     selectedTabIndex: Int,
     onTabSelected: (Int) -> Unit,
 ) {
-    val user by remember { mutableStateOf(Firebase.auth.currentUser) }
+
+    val image = painterResource(id = R.drawable.profile)
 
     Scaffold {
         Column(
@@ -105,21 +103,20 @@ fun ClothesContent(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                    HomeSection(
-                        title = "Hi, ${user!!.displayName}",
+                HomeSection(
+                    title = "Hi! Hafizh"
+                )
+                Box(
+                    modifier = Modifier
+                        .size(45.dp)
+                        .clip(CircleShape)
+                ) {
+                    Image(
+                        painter = image,
+                        contentDescription = "profile",
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.Crop
                     )
-                    Box(
-                        modifier = Modifier
-                            .size(45.dp)
-                            .clip(CircleShape)
-                    ) {
-                        Image(
-                            painter = rememberAsyncImagePainter(user!!.photoUrl),
-                            contentDescription = "profile",
-                            modifier = Modifier.fillMaxSize(),
-                            contentScale = ContentScale.Crop
-                        )
-                    }
                 }
             }
             Text(
