@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">TrendFits</string>
+    <string name="web_client_id">362005280277-lbrer87gidd0kqvh9d56gcrac89vpfiu.apps.googleusercontent.com</string>
     <string name="menu_home">Home</string>
     <string name="profile">Profile</string>
     <string name="desk">Description :</string>

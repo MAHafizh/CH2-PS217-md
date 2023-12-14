@@ -20,6 +20,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,6 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.rememberAsyncImagePainter
 import com.capstone.trendfits.R
 import com.capstone.trendfits.di.Injection
 import com.capstone.trendfits.model.ClothesOrder
@@ -37,6 +42,8 @@ import com.capstone.trendfits.ui.components.ClothesItem
 import com.capstone.trendfits.ui.components.HomeSection
 import com.capstone.trendfits.ui.components.StateUi
 import com.capstone.trendfits.ui.theme.TrendFitsTheme
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 
 @Composable
@@ -73,8 +80,7 @@ fun ClothesContent(
     modifier: Modifier = Modifier,
     navigateToDetail: (Long) -> Unit,
 ) {
-
-    val image = painterResource(id = R.drawable.profile)
+    val user by remember { mutableStateOf(Firebase.auth.currentUser) }
 
     Scaffold(
         content = {
@@ -91,7 +97,7 @@ fun ClothesContent(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     HomeSection(
-                        title = "Hi! Hafizh"
+                        title = "Hi, ${user!!.displayName}",
                     )
                     Box(
                         modifier = Modifier
@@ -99,7 +105,7 @@ fun ClothesContent(
                             .clip(CircleShape)
                     ) {
                         Image(
-                            painter = image,
+                            painter = rememberAsyncImagePainter(user!!.photoUrl),
                             contentDescription = "profile",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
